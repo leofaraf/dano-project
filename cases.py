@@ -12,10 +12,8 @@ def load_buyed():
 def load_staff():
     return pd.read_excel("Список_сотрудников_КРОК.xlsx")
 
-def load_rfm():
-    return pd.read_excel("staff_rfm.xlsx")
 
-def z_test_by_category():
+def cases():
     purchases = pd.read_csv("Покупки_сотрудников_в_боброшопе.csv", sep=";")
     earnings = pd.read_csv("NEW_Как_зарабатывают_бобров_КРОК.csv", sep=";")
 
@@ -74,9 +72,5 @@ def z_test_by_category():
         if len(diff_list) < 2:
             continue  # мало данных для анализа
 
-    summary_df = pd.DataFrame(results_summary)
-    print(summary_df)
-    summary_df.to_excel("z_test_by_category.xlsx", index=False)
-
 if __name__ == "__main__":
-    z_test_by_category()
+    cases()
